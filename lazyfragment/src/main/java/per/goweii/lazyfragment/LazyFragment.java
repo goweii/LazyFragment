@@ -16,22 +16,8 @@ import java.util.List;
 
 public abstract class LazyFragment extends CacheFragment {
 
-    private static final int WHAT_LAZY_VISIBLE = 1;
-    private static final long LAZY_LOAD_DELAY = 100;
-
     private boolean mIsFirstVisible = true;
     private boolean mUserVisible = false;
-
-    @SuppressLint("HandlerLeak")
-    private Handler mLazyLoadHandler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == WHAT_LAZY_VISIBLE) {
-                final boolean isFirstVisible = msg.arg1 == 1;
-                onVisibleLazy(isFirstVisible);
-            }
-        }
-    };
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -133,17 +119,9 @@ public abstract class LazyFragment extends CacheFragment {
         }
     }
 
-    public void onVisibleLazy(boolean isFirstVisible) {
-    }
-
     public void onVisible(boolean isFirstVisible) {
-        Message msg = mLazyLoadHandler.obtainMessage();
-        msg.what = WHAT_LAZY_VISIBLE;
-        msg.arg1 = isFirstVisible ? 1 : 0;
-        mLazyLoadHandler.sendMessageDelayed(msg, LAZY_LOAD_DELAY);
     }
 
     public void onInvisible() {
-        mLazyLoadHandler.removeMessages(WHAT_LAZY_VISIBLE);
     }
 }

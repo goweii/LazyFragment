@@ -1,9 +1,6 @@
 package per.goweii.lazyfragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -79,7 +76,9 @@ public abstract class LazyFragment extends CacheFragment {
     }
 
     private void dispatchUserVisibleHint(boolean visible) {
-        if (visible && isParentInvisible()) return;
+        if (visible && isParentInvisible()) {
+            return;
+        }
         if (mUserVisible == visible) {
             return;
         }
@@ -99,8 +98,12 @@ public abstract class LazyFragment extends CacheFragment {
     }
 
     private boolean isParentInvisible() {
-        LazyFragment fragment = (LazyFragment) getParentFragment();
-        return fragment != null && !fragment.isSupportUserVisible();
+        Fragment fragment = getParentFragment();
+        if (fragment instanceof LazyFragment) {
+            LazyFragment lazyFragment = (LazyFragment) fragment;
+            return !lazyFragment.isSupportUserVisible();
+        }
+        return fragment != null && fragment.isVisible();
     }
 
     private boolean isSupportUserVisible() {

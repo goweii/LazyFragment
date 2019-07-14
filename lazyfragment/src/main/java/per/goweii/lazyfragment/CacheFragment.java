@@ -34,6 +34,9 @@ abstract class CacheFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        mRootView = null;
+        mCacheViews.clear();
+        mCacheViews = null;
         mViewCreated = false;
     }
 

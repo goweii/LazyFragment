@@ -1,13 +1,9 @@
 package per.goweii.lazyfragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.List;
 
@@ -15,11 +11,6 @@ public abstract class LazyFragment extends CacheFragment {
 
     private boolean mIsFirstVisible = true;
     private boolean mUserVisible = false;
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -99,11 +90,14 @@ public abstract class LazyFragment extends CacheFragment {
 
     private boolean isParentInvisible() {
         Fragment fragment = getParentFragment();
+        if (fragment == null) {
+            return false;
+        }
         if (fragment instanceof LazyFragment) {
             LazyFragment lazyFragment = (LazyFragment) fragment;
             return !lazyFragment.isSupportUserVisible();
         }
-        return fragment != null && fragment.isVisible();
+        return !fragment.isVisible();
     }
 
     private boolean isSupportUserVisible() {

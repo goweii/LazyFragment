@@ -40,6 +40,11 @@ abstract class CacheFragment extends Fragment {
         mViewCreated = false;
     }
 
+    @Nullable
+    public View getRootView() {
+        return mRootView;
+    }
+
     public final <V extends View> V getView(@IdRes int id) {
         if (mCacheViews == null) {
             mCacheViews = new SparseArray<>();

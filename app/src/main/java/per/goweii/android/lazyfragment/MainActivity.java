@@ -1,4 +1,4 @@
-package per.goweii.adnroid.lazyfragment;
+package per.goweii.android.lazyfragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

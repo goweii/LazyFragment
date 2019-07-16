@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="per.goweii.adnroid.lazyfragment">
+    package="per.goweii.android.lazyfragment">
 
     <application
         android:allowBackup="true"

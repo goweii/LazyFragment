@@ -1,9 +1,10 @@
-package per.goweii.adnroid.lazyfragment;
+package per.goweii.android.lazyfragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -32,7 +33,8 @@ public class Test1Fragment extends LazyFragment {
     }
 
     @Override
-    protected void initView() {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         name = getArguments().getString("name");
         TextView tv_name = findViewById(R.id.tv_name);
         tv_name.setText(name);

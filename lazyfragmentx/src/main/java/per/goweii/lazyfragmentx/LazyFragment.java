@@ -68,7 +68,9 @@ public abstract class LazyFragment extends CacheFragment {
     }
 
     private void dispatchUserVisibleHint(boolean visible) {
-        if (visible && isParentInvisible()) return;
+        if (visible && !isParentVisible()) {
+            return;
+        }
         if (mUserVisible == visible) {
             return;
         }
@@ -87,9 +89,16 @@ public abstract class LazyFragment extends CacheFragment {
         }
     }
 
-    private boolean isParentInvisible() {
-        LazyFragment fragment = (LazyFragment) getParentFragment();
-        return fragment != null && !fragment.isSupportUserVisible();
+    private boolean isParentVisible() {
+        Fragment fragment = getParentFragment();
+        if (fragment == null) {
+            return true;
+        }
+        if (fragment instanceof LazyFragment) {
+            LazyFragment lazyFragment = (LazyFragment) fragment;
+            return lazyFragment.isSupportUserVisible();
+        }
+        return fragment.isVisible();
     }
 
     private boolean isSupportUserVisible() {

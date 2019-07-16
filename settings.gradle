@@ -1,1 +1,1 @@
-include ':app', ':lazyfragment'
+include ':app', ':lazyfragment', ':lazyfragmentx', ':appx'

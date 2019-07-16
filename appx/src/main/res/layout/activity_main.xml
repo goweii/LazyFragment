@@ -7,19 +7,25 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_name"
+    <ScrollView
+        android:id="@+id/sv_log"
         android:layout_width="match_parent"
-        android:gravity="center"
-        tools:text="1sdfsfsdf"
-        android:textColor="#000"
-        android:layout_height="44dp" />
+        android:layout_height="200dp"
+        android:background="#f5f5f5">
 
-    <android.support.v4.view.ViewPager
+        <TextView
+            android:id="@+id/tv_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#999999" />
+
+    </ScrollView>
+
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +37,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="2-1"
+            android:text="1-1"
             android:textColor="#000" />
 
         <TextView
@@ -40,7 +46,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="2-2"
+            android:text="1-2"
             android:textColor="#000" />
 
         <TextView
@@ -49,7 +55,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="2-3"
+            android:text="1-3"
             android:textColor="#000" />
 
         <TextView
@@ -58,7 +64,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="2-4"
+            android:text="1-4"
             android:textColor="#000" />
 
         <TextView
@@ -67,7 +73,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="2-5"
+            android:text="1-5"
             android:textColor="#000" />
 
     </LinearLayout>

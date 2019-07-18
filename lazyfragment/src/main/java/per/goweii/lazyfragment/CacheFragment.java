@@ -34,8 +34,10 @@ abstract class CacheFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         mRootView = null;
-        mCacheViews.clear();
-        mCacheViews = null;
+        if (mCacheViews != null) {
+            mCacheViews.clear();
+            mCacheViews = null;
+        }
         mViewCreated = false;
     }
 

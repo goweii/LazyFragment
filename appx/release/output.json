@@ -9,11 +9,11 @@
       "versionCode": 1,
       "versionName": "1.0",
       "enabled": true,
-      "outputFile": "app-release.apk",
+      "outputFile": "appx-release.apk",
       "fullName": "release",
       "baseName": "release"
     },
-    "path": "app-release.apk",
+    "path": "appx-release.apk",
     "properties": {}
   }
 ]

@@ -1,6 +1,13 @@
 # LazyFragment
 
 
+## DEMO下载
+
+[androidx-demo](https://github.com/goweii/LazyFragment/raw/master/appx/release/app-release.apk)
+
+[support-demo](https://github.com/goweii/LazyFragment/raw/master/app/release/app-release.apk)
+
+
 ## 集成
 
 - ### 添加jitpack库
